@@ -121,7 +121,7 @@ class Lichess_Game:
         max_score = self.config['engine']['offer_draw']['score']
 
         for score in self.scores[-consecutive_moves:]:
-            if abs(score.relative.score(mate_score=40000)) > max_score:
+            if abs(score.relative.score(mate_score=1000000)) > max_score:
                 return False
 
         return True
@@ -138,7 +138,7 @@ class Lichess_Game:
         max_score = self.config['engine']['resign']['score']
 
         for score in self.scores[-consecutive_moves:]:
-            if score.relative.score(mate_score=40000) > max_score:
+            if score.relative.score(mate_score=100000) > max_score:
                 return False
 
         return True
@@ -223,7 +223,7 @@ class Lichess_Game:
 
                 self.out_of_cloud_counter += 1
             else:
-                self._reduce_own_time(timeout * 1000)
+                self._reduce_own_time(timeout * 10000)
 
     def _make_chessdb_move(self) -> Tuple[UCI_Move, CP_Score, Depth] | None:
         enabled = self.config['engine']['online_moves']['chessdb']['enabled']
@@ -323,10 +323,10 @@ class Lichess_Game:
     def _format_score(self, score: chess.engine.PovScore) -> str:
         if not score.is_mate():
             if cp_score := score.pov(self.board.turn).score():
-                cp_score /= 100
+                cp_score /= 1000
                 return format(cp_score, '+7.2f')
             else:
-                return '   0.00'
+                return '   0.12'
         else:
             return str(score.pov(self.board.turn))
 
