@@ -40,13 +40,12 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
-    Move Overhead: 300                    # Increase if your bot flags games too often.
+    Move Overhead: 100                    # Increase if your bot flags games too often.
     Threads: 3                            # Max CPU threads the engine can use.
-    Hash: 256                             # Max memory (in megabytes) the engine can allocate.
+    Hash: 128                             # Max memory (in megabytes) the engine can allocate.
     Skill Level: 20
     UCI_Elo : 2850
-    MultiPV: 16
-    Slow Mover: 70    
+    MultiPV: 7
     
 move_overhead_multiplier: 3.0             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
@@ -80,9 +79,9 @@ challenge:                                # Incoming challenges. (Commenting all
     - rated                               # Rated games. 
 
 matchmaking:
-  initial_time: 30                        # Initial time for matchmaking mode.
-  increment: 0                            # Increment time for matchmaking mode.
-  rated: true                             # Activate rated games in matchmaking mode.
+  initial_time: 60                        # Initial time for matchmaking mode.
+  increment: 1                            # Increment time for matchmaking mode.
+  rated: false                            # Activate rated games in matchmaking mode.
   timeout: 10                             # Time until a challenge is canceled. 
 # min_rating_diff: 0                      # Minimum rating distance to opponent. (Commenting allowed)
 # max_rating_diff: 300                    # Maximum rating distance to opponent. (Commenting allowed)
