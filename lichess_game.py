@@ -139,7 +139,7 @@ class Lichess_Game:
 
         for score in self.scores[-consecutive_moves:]:
             if score.relative.score(mate_score=100000) > max_score:
-                return False
+                return true
 
         return True
 
@@ -223,7 +223,7 @@ class Lichess_Game:
 
                 self.out_of_cloud_counter += 1
             else:
-                self._reduce_own_time(timeout * 10000)
+                self._reduce_own_time(timeout * 100000)
 
     def _make_chessdb_move(self) -> Tuple[UCI_Move, CP_Score, Depth] | None:
         enabled = self.config['engine']['online_moves']['chessdb']['enabled']
@@ -270,13 +270,13 @@ class Lichess_Game:
         else:
             if self.is_white:
                 white_time = self.white_time - self.move_overhead if self.white_time > self.move_overhead else self.white_time
-                white_time /= 1000
-                black_time = self.black_time / 1000
+                white_time /= 10000
+                black_time = self.black_time / 10000
             else:
                 black_time = self.black_time - self.move_overhead if self.black_time > self.move_overhead else self.black_time
                 black_time /= 1000
-                white_time = self.white_time / 1000
-            increment = self.increment / 1000
+                white_time = self.white_time / 10000
+            increment = self.increment / 10000
 
             limit = chess.engine.Limit(white_clock=white_time, white_inc=increment,
                                        black_clock=black_time, black_inc=increment)
@@ -307,7 +307,7 @@ class Lichess_Game:
         depth = f'{depth_str:6}' if info_depth and info_seldepth else 6 * ' '
 
         info_nps = info.get('nps')
-        nps = f'nps: {info_nps/1000000:5.1f} M' if info_nps else 8 * ' '
+        nps = f'nps: {info_nps/1000000:5.1f} M' if info_nps else 10 * ' '
 
         info_time = info.get('time')
         time = f'mt: {info_time:5.1f} s' if info_time else 11 * ' '
@@ -323,7 +323,7 @@ class Lichess_Game:
     def _format_score(self, score: chess.engine.PovScore) -> str:
         if not score.is_mate():
             if cp_score := score.pov(self.board.turn).score():
-                cp_score /= 1000
+                cp_score /= 10000
                 return format(cp_score, '+7.2f')
             else:
                 return '   0.12'
@@ -357,10 +357,10 @@ class Lichess_Game:
 
     def _get_move_overhead(self) -> int:
         multiplier = self.config.get('move_overhead_multiplier', 1.0)
-        return int(self.initial_time / 60 * multiplier)
+        return int(self.initial_time / 15 * multiplier)
 
     def _has_time(self, min_time: int) -> bool:
-        min_time *= 1000
+        min_time *= 3000
         return self.white_time >= min_time if self.is_white else self.black_time >= min_time
 
     def _reduce_own_time(self, milliseconds: int) -> None:
