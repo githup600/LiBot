@@ -323,7 +323,7 @@ class Lichess_Game:
     def _format_score(self, score: chess.engine.PovScore) -> str:
         if not score.is_mate():
             if cp_score := score.pov(self.board.turn).score():
-                cp_score /= 10000
+                cp_score /= 100
                 return format(cp_score, '+7.2f')
             else:
                 return '   0.12'
