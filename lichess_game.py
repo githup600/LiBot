@@ -1,4 +1,4 @@
-mport pickle
+import pickle
 from typing import Tuple
 
 import chess
