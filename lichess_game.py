@@ -357,10 +357,10 @@ class Lichess_Game:
 
     def _get_move_overhead(self) -> int:
         multiplier = self.config.get('move_overhead_multiplier', 1.0)
-        return int(self.initial_time / 15 * multiplier)
+        return int(self.initial_time / 30 * multiplier)
 
     def _has_time(self, min_time: int) -> bool:
-        min_time *= 3000
+        min_time *= 1000
         return self.white_time >= min_time if self.is_white else self.black_time >= min_time
 
     def _reduce_own_time(self, milliseconds: int) -> None:
