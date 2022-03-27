@@ -55,9 +55,9 @@ move_overhead_multiplier: 3              # Increase if your bot flags games too 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
   min_increment: 0                        # Minimum amount of increment to accept a challenge.
-  max_increment: 180                      # Maximum amount of increment to accept a challenge.
+  max_increment: 1                       # Maximum amount of increment to accept a challenge.
   min_initial: 0                          # Minimum amount of initial time to accept a challenge.
-  max_initial: 1000                        # Maximum amount of initial time to accept a challenge.
+  max_initial: 60                        # Maximum amount of initial time to accept a challenge.
   variants:                               # Chess variants to accept (https://lichess.org/variant).
     - standard
 #   - chess960
