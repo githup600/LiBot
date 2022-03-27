@@ -1,3 +1,8 @@
+ build:
+  docker:
+    worker: Dockerfile
+
+
 #!/bin/bash
 chmod +x engines/stockfish
 chmod +x engines/multivariant_stockfish
