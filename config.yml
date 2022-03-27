@@ -46,7 +46,7 @@ engine:                                   # Engine settings.
     MultiPV: 1
     Skill Level: 20
     UCI_Elo : 2850
-    Slow Mover: 40
+    Slow Mover: 71
     UCI_LimitStrength: false
     ponder: true
 
@@ -84,7 +84,7 @@ challenge:                                # Incoming challenges. (Commenting all
 matchmaking:
   initial_time: 30                        # Initial time for matchmaking mode.
   increment: 0                            # Increment time for matchmaking mode.
-  rated: rated                            # Activate rated games in matchmaking mode.
+  rated: teue                            # Activate rated games in matchmaking mode.
   timeout: 10                             # Time until a challenge is canceled. 
 # min_rating_diff: 0                      # Minimum rating distance to opponent. (Commenting allowed)
 # max_rating_diff: 300                    # Maximum rating distance to opponent. (Commenting allowed)
