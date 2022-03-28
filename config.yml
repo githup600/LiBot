@@ -40,15 +40,16 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
-    Move Overhead: 400                    # Increase if your bot flags games too often.
-    Threads:  4                           # Max CPU threads the engine can use.
-    Hash: 116                             # Max memory (in megabytes) the engine can allocate.
-    MultiPV: 4
+    Move Overhead: 340                # Increase if your bot flags games too often.
+    Threads:  3                           # Max CPU threads the engine can use.
+    Hash: 128                           # Max memory (in megabytes) the engine can allocate.
+    MultiPV: 21
     Skill Level: 20
-    UCI_Elo : 2850
+    UCI_Elo :  2850                                  
     UCI_LimitStrength: false
+    Slow Mover:  32
 
-move_overhead_multiplier: 6.1              # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 3.2              # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
