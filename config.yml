@@ -43,12 +43,12 @@ engine:                                   # Engine settings.
     Move Overhead: 100                    # Increase if your bot flags games too often.
     Threads:  3                           # Max CPU threads the engine can use.
     Hash:  210                            # Max memory (in megabytes) the engine can allocate.
-    MultiPV: 1
+    MultiPV: 11
     Skill Level: 20
     UCI_Elo :  2850                                  
     UCI_LimitStrength: false
 
-move_overhead_multiplier: 9.2              # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 18.2              # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
