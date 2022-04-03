@@ -1,6 +1,5 @@
 #!/bin/bash
 wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
-&& 7z e Goi5.1.bin.7z && rm Goi5.1.bin.7z
 chmod +x engines/stockfish
 chmod +x engines/multivariant_stockfish
 chmod +x engines/fairy-sf
