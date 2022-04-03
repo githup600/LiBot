@@ -1,4 +1,4 @@
-token: "lip_VzBe2OS0ErlAuIz40Amd"         # Lichess OAuth2 Token.
+token: "lip_3drsojADXEEfBBArz44i"         # Lichess OAuth2 Token.
 
 engine:                                   # Engine settings.
   dir: "./engines"               # Directory containing the engine.
@@ -42,8 +42,8 @@ engine:                                   # Engine settings.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
     Move Overhead: 400                    # Increase if your bot flags games too often.
     Threads: 3                            # Max CPU threads the engine can use.
-    Hash: 234                             # Max memory (in megabytes) the engine can allocate.
-    MultiPV: 70
+    Hash: 134                             # Max memory (in megabytes) the engine can allocate.
+    MultiPV: 32
     Skill Level: 20
     UCI_Elo : 2850
     Slow Mover: 40
