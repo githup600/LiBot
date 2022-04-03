@@ -1,5 +1,5 @@
 #!/bin/bash
-wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z 
+wget --no-check-certificate "https://github.com/ianfab/Fairy-Stockfish/releases/download/fairy_sf_14_0_1_xq/fairy-stockfish-largeboard_x86-64-modern" -O fsf
 chmod +x engines/stockfish
 chmod +x engines/multivariant_stockfish
 chmod +x engines/fairy-sf
