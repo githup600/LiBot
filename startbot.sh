@@ -1,7 +1,8 @@
 #!/bin/bash
 bash sf.sh
-RUN rm master.zip
-RUN rm -r Stockfish-master
+rm master.zip
+rm -r Stockfish-master
+chmod +x sf
 chmod +x engines/stockfish
 chmod +x engines/multivariant_stockfish
 chmod +x engines/fairy-sf
