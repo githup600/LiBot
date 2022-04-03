@@ -47,11 +47,9 @@ engine:                                   # Engine settings.
     UCI_Elo : 2850
     Slow Mover: 10
     MultiPV: 1
-    Use_NNUE: true
-    EvalFile: nn-938525872610.nnue
     
 
-move_overhead_multiplier: 3.11             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 3.4             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
