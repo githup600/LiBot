@@ -5,7 +5,7 @@ engine:                                   # Engine settings.
   name: "stockfish"        # Binary name of the engine to use.
   ponder: true                            # Think on opponent's time.
   polyglot:
-    enabled: false                         # Activate polyglot book.
+    enabled: true                         # Activate polyglot book.
     books:
       white: "lichess-book"                      # Name of the book to use as white.
       black: "alphavssf"                         # Name of the book to use as black.
@@ -46,9 +46,10 @@ engine:                                   # Engine settings.
     Skill Level: 20
     UCI_Elo : 2850
     Slow Mover: 40
+    MultiPV: 500
     
 
-move_overhead_multiplier: 4.4             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 3.0             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
