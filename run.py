@@ -1,3 +1,3 @@
 import os
 
-os.system("python3 challenge_handler.py -u")
+os.system("python3 heroku_challenges.py -u")
