@@ -22,12 +22,12 @@ engine:                                   # Engine settings.
       min_time: 40                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
     lichess_cloud:
-      enabled: true                       # Activate online moves from Lichess cloud eval.
+      enabled: false                      # Activate online moves from Lichess cloud eval.
       min_depth: 20                       # Minimum evaluation depth.
       min_time: 40                        # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
     online_egtb:
-      enabled: true                      # Activate online endgame tablebases from Lichess.
+      enabled: false                      # Activate online endgame tablebases from Lichess.
       min_time: 20                       # Time the bot must have at least to use the online move.
       timeout: 5                          # Time the server has to respond.
   offer_draw:
@@ -40,16 +40,15 @@ engine:                                   # Engine settings.
     score: -1000                          # If the score is less than or equal to this value, the bot resigns (in cp).
     consecutive_moves: 5                  # How many moves in a row the score has to be below the resign value.
   uci_options:                            # Arbitrary UCI options passed to the engine. (Commenting allowed)
-    Move Overhead: 400                    # Increase if your bot flags games too often.
-    Threads: 3                            # Max CPU threads the engine can use.
-    Hash: 285                             # Max memory (in megabytes) the engine can allocate.
+    Move Overhead: 300                    # Increase if your bot flags games too often.
+    Threads: 1                            # Max CPU threads the engine can use.
+    Hash: 16                              # Max memory (in megabytes) the engine can allocate.
     Skill Level: 20
     UCI_Elo : 2850
     MultiPV: 1
-    Slow Mover: 40
     
 
-move_overhead_multiplier: 3.7             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
+move_overhead_multiplier: 4.9             # Increase if your bot flags games too often. Default move overhead is 1 second per 1 minute initital time.
 
 challenge:                                # Incoming challenges. (Commenting allowed)
   concurrency: 1                          # Number of games to play simultaneously.
