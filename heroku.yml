@@ -6,4 +6,3 @@ run:
     command:
       - python3 run.py
     image: worker
-© 2022 GitHub, Inc.
