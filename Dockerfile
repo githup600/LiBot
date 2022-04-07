@@ -1,4 +1,3 @@
-
 FROM ubuntu:jammy
 ENV DEBIAN_FRONTEND noninteractive
 MAINTAINER activer
@@ -11,13 +10,7 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y sudo curl apt-utils libqt5gui5 python3-psutil wget python3 python3-pip p7zip-full git build-essential
 
-#add variant books 
-RUN wget --no-check-certificate -nv "https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/MEGA/Goi5.1.bin.7z" -O Goi5.1.bin.7z \
-&& 7z e Goi5.1.bin.7z && rm Goi5.1.bin.7z
-RUN wget --no-check-certificate "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/master/Cerebellum3Merge.bin.7z" -O Cerebellum3Merge.bin.7z
-Run 7z e Cerebellum3Merge.bin.7z && rm Cerebellum3Merge.bin.7z
-
-RUN wget --no-check-certificate "https://abrok.eu/stockfish/builds/471d93063a8fc1803a4a34397fe39e2344a05d76/linux64avx2/stockfish_22032822_x64_avx2.zip" -O chess-engine.zip
+RUN wget --no-check-certificate "https://abrok.eu/stockfish/builds/08e0f52b77edb929989c68c49e954b9bc5d7d67e/linux64ssse/stockfish_22032822_x64_ssse.zip" -O chess-engine.zip
 RUN 7z e chess-engine.zip && rm chess-engine.zip && mv stockfish* chess-engine
 
 COPY requirements.txt .
