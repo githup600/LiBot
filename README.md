@@ -14,34 +14,28 @@
 - [Stockfish](https://github.com/official-stockfish/Stockfish)
 - [Stockfish Multi Variant (dev)](https://github.com/ddugovic/Stockfish)
 - [Fairy Sf](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/blob/main/engines/fairy-sf)
+- [Stockfish dev](https://abrok.eu/stockfish/builds/3ec6e1d2450183ed4975cf569b5a1286cb9d8369/linux64/stockfish_22021301_x64.zip)
 
 ### Chess polyglot Opening Books
 
-- [Elo3300](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/raw/main/engines/elo3300.bin) 
-- [Lichess-Book](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/raw/main/engines/lichess-book.bin)
+- Allplay.bin
+- Lichess-Book.bin
+-  In case you want to use other book you found it in Engine folder
+-  Just copy the name of the book and put in the line 10 or 11 as your choice
 
-### Heroku Buildpack
 
-- [`heroku/python`](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-python)
+## How to Install on Heroku
+- Import or [Fork](https://github.com/LichessBot-Coders/Lichess-Coded-Bots/fork) this repository to your Github.
+- Open the `config.yml` file and insert your [API access token](https://lichess.org/account/oauth/token/create?scopes[]=bot:play&description=Lichess+Bot+Token) in to token option and commit changes over [here](/config.yml#L1).
+- Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install) and [create a new app](https://dashboard.heroku.com/new-app) in Heroku. <br/>
+**Do note that in certain operating systems Heroku CLI doesn't get added to path automatically. If that's the case you'll have to add heroku to your path manually.**
+- Run this command in cmd or powershell `heroku stack:set container -a appname`, where `appname` is replaced with your Heroku app's name.
+- In heroku, in the `Deploy` tab click on `Connect to GitHub` and then click on `search` and select your fork/import of this repository.
+- Now scroll down and under `Manual deploy`, click on `deploy` with the `master` branch selected. <br/> <br/>
+Note: You could also `Enable Automatic Deploys` with the `master` branch selected if you would like each commit you make to get automatically and easily deployed onto your bot. It is your choice whether you'd like to Enable or Disable Automatic Deploys.
+- After deploying wait for about 5 minutes till the build finishes and then in the `Resources` tab in heroku turn `worker` dynos. If you do not see any option to enable any dynos, then you'll have to wait for about 5 minutes and then refresh your page on heroku.
 
-### Heroku Stack
-
-- [`heroku-20`](https://devcenter.heroku.com/articles/heroku-20-stack)
-
-## How to install
-
-- [Fork](https://github.com/Lichess-Bot/ToromLI-Bot-Heroku/fork) this repository.
-- Edit Config.yml,  __INSERT YOUR TOKEN__ and make the change required accordingly to you. 
-- If you want casual matchmaking you have to type true in config yml matchmaking lists.
-- 
-- Create a [new heroku app](https://dashboard.heroku.com/new-app).
-- Go to the `Deploy` tab and click `Connect to GitHub`.
-- Click on `search` and then select your fork of this repository.
-- Then `Enable Automatic Deploys` and then select the `heroku` branch and Click `Deploy`.
-- Once it has been deployed, go to `Settings` tab on heroku and create a variable, set `LICHESS_BOT_TOKEN` as key and your token as value.
-- Go to `Resources` tab on heroku and enable `worker (bash startbot.sh)` dynos. (Do note that if you don't see any dynos in the `Resources` tab, then you must wait for about 5 minutes and then refresh your heroku page.)
-
-You're now connected to lichess and awaiting challenges! Your bot is up and ready! You can activate the matchmaking mode in your `startbot.sh` file.
+**You're now connected to lichess and awaiting challenges! Your bot is up and ready!**
 
 __CAUTION:__ Be careful with matchmaking mode, lichess will rate limit you if you let it run for too long!
 
@@ -57,7 +51,6 @@ Within the file `config.yml`:
 - Enter the directory containing the engine executable in the `engine: dir` field.
 - Enter the executable name in the `engine: name` field.
 - You need to adjust the settings in `engine: uci_options` depending on your system.
-- Remember [Line 5](https://github.com/Lichess-Bot/BotLi/blob/c1020fa1ec57f55b669855290620fc36d1eaa79f/config.yml#L5) is put for engines. Now Stockfish engine is putted which play best and fast but only standard. In the case you need Variants you have to put **Stockfish_Multi_Variant_Dev on config yml line 5** or **Fairy_Sf**
 
 ## Setup polyglot opening book
 To use a polyglot opening book the name of the book and the path to the book must be entered at the end of the config in the section `books`.
@@ -66,16 +59,25 @@ Several books can be entered here. In the upper area `eninge: polyglot: books` o
 
 ## Matchmaking mode
 
-You can activate the matchmaking mode in your `startbot.sh` by putting # before [Line 8  on start bot sh](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/blob/8ccd3f387923cff5766a8276924ddf9d43f1d8cc/startbot.sh#L8) and removing # from [Line 10 of start bot sh](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/blob/8ccd3f387923cff5766a8276924ddf9d43f1d8cc/startbot.sh#L10) file.
+You can activate the matchmaking mode in your 'run.py'
+To activate matchmaking remove the text that have been written there and type 
+import os
 
+os.system("python3 heroku_matchmaking.py -u")
+To remove matchmaking and want to accept Challenge again remove all text  and type
+import os
 
-If you again want to accept Challenge and want to remove match making put # before [Line 8](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/blob/8ccd3f387923cff5766a8276924ddf9d43f1d8cc/startbot.sh#L8) and remove # on [Line 10](https://github.com/Lichess-Bot/Lichess-bot-BotLi-/blob/8ccd3f387923cff5766a8276924ddf9d43f1d8cc/startbot.sh#L10).
+os.system("python3 heroku_challenges.py -u")
 
 __CAUTION:__ Be careful with matchmaking mode, lichess will rate limit you if you let it run for too long!
 
+## Greetings Chat ** 
+__In other repo which have chat of greeting dont have matchamking but this repo have chat of greeting and matchmaking__
+For chat there is a file name gami_api.py,  there is a line start with self.api.send_chat_message(self.game_id, "player",
+and written the chats for greeting. Other you will understand by seeing that file.
 ## Acknowledgements
 Thanks to the Lichess team, especially T. Alexander Lystad and Thibault Duplessis for working with the LeelaChessZero team to get this API up. Thanks to the [Niklas Fiekas](https://github.com/niklasf) and his [python-chess](https://github.com/niklasf/python-chess) code which allows engine communication seamlessly. In addition, the idea of this bot is based on [ShailChoksi/lichess-bot](https://github.com/ShailChoksi/lichess-bot) and
- [Torom bot Li ](https://github.com/Torom/BotLi)
+ [Torom bot Li ](https://github.com/Torom/BotLi) and it have been made with the help of my friend [Codingforhelp](https://github.com/codingforhelp)
 ## License
 
 **LiBot** is licensed under the AGPLv3 (or any later version at your option). Check out the [LICENSE file](/LICENSE) for the full text. 
