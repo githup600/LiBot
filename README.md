@@ -63,3 +63,5 @@ Thanks to the Lichess team, especially T. Alexander Lystad and Thibault Duplessi
 
 ## License
 **BotLi** is licensed under the AGPLv3 (or any later version at your option). Check out the [LICENSE file](/LICENSE) for the full text.
+## Warning 
+This is repository is not fully ready In case you use it will not be strongest 
