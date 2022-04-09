@@ -8,7 +8,7 @@ from lichess_game import Lichess_Game
 
 
 class Game_api:
-    def __init__(self, config: dict, api: API, username: str, game_id: str) -> None:
+    def __init__(self, config: dict, api: API, username: str, game_id: str):
         self.config: dict = config
         self.api = api
         self.username = username
@@ -17,9 +17,18 @@ class Game_api:
         self.ping_counter = 0
         self.game_queue = Queue()
 
-    def run_game(self) -> None:
+    def run_game(self):
         game_queue_thread = Thread(target=self._watch_game_stream, daemon=True)
         game_queue_thread.start()
+        
+        
+        self.api.send_chat_message(self.game_id, "player", "Hello, Welcome to the game! Type !help for commands I can respond to.")
+        self.api.send_chat_message(self.game_id, "player", "I wish you good luck!")
+
+        self.api.send_chat_message(self.game_id, "spectator", "Welcome  to the game spectators!")
+        self.api.send_chat_message(self.game_id, "spectator", "Type !help to see my commands")
+
+
 
         while True:
             event = self.game_queue.get()
@@ -71,6 +80,13 @@ class Game_api:
                     self.api.abort_game(self.game_id)
             else:
                 print(event)
+                
+        self.api.send_chat_message(self.game_id, "player", "Thanks for playing with me!")
+        self.api.send_chat_message(self.game_id, "player", "Good Game!!")
+
+        self.api.send_chat_message(self.game_id, "spectator", "Thanks for watching my game!")
+        self.api.send_chat_message(self.game_id, "spectator", "Do not forget to Challenge me when I am not playing any game!")
+
 
         print('Game over')
 
