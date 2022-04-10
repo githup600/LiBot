@@ -3,6 +3,7 @@ token: "lip_MBHBy3EXqxvezOOFoPrm"         # Lichess OAuth2 Token.
 engine:                                   # Engine settings.
   dir: "./"               # Directory containing the engine.
   name: "chess-engine"        # Binary name of the engine to use.
+  variantname: "fairy-sf" # Variant name of the engine to use. 
   ponder: true                            # Think on opponent's time.
   polyglot:
     enabled: true                         # Activate polyglot book.
