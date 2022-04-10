@@ -3,13 +3,6 @@ token: "lip_MBHBy3EXqxvezOOFoPrm"         # Lichess OAuth2 Token.
 engine:                                   # Engine settings.
   dir: "./"               # Directory containing the engine.
   name: "chess-engine"        # Binary name of the engine to use.
-  Atomic: "/engines/fairy-sf"  # Binary name of the engine for atomic variant to use.
-  Antichess: "/engines/fairy-sf"  # Binary name of the engine for antichess variant to use.
-  Crazyhouse: "/engines/fairy-sf"  # Binary name of the engine for crazyhouse variant to use.
-  Horde: "/engines/fairy-sf"   # Binary name of the engine for horde variant to use.
-  King of the Hill: "/engines/fairy-sf"   # Binary name of the engine for koth variant to use.
-  Racing Kings: "/engines/fairy-sf"  # Binary name of the engine for racing kings variant to use.
-  Three-check: "/engines/fairy-sf"   # Binary name of the engine for three check variant to use.
   ponder: true                            # Think on opponent's time.
   polyglot:
     enabled: true                         # Activate polyglot book.
