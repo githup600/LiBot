@@ -18,5 +18,5 @@ COPY requirements.txt .
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 RUN chmod +x chess-engine
-RUN chmod +x fairy-sf
+RUN chmod +x ./engines/fairy-sf
 # Engine name is here ^^^^^^
